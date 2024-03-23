@@ -14,13 +14,13 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateTask } from "../store/actions/taskActions";
+import { addTask } from "../store/actions/taskActions";
 
-export default function EditDialog({ task }) {
+export default function AddDialog() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [data, setData] = useState({
-		title: task.title,
-		description: task.description,
+		title: "",
+		description: "",
 	});
 
 	const initialRef = React.useRef(null);
@@ -35,13 +35,13 @@ export default function EditDialog({ task }) {
 
 	function handleUpdate() {
 		onClose();
-		dispatch(updateTask(task._id,data, token));
+		dispatch(addTask(data, token));
 	}
 
 	return (
 		<>
-			<Button colorScheme="yellow" onClick={onOpen}>
-				Edit
+			<Button colorScheme="green" onClick={onOpen}>
+				Add
 			</Button>
 
 			<Modal
@@ -52,7 +52,7 @@ export default function EditDialog({ task }) {
 			>
 				<ModalOverlay />
 				<ModalContent>
-					<ModalHeader>Update Task Details</ModalHeader>
+					<ModalHeader>Create new Task</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody pb={6}>
 						<FormControl>
@@ -62,7 +62,6 @@ export default function EditDialog({ task }) {
 								name="title"
 								ref={initialRef}
 								placeholder="Task Title"
-								value={data.title || ""}
 							/>
 						</FormControl>
 
@@ -72,14 +71,13 @@ export default function EditDialog({ task }) {
 								onChange={handleChange}
 								name="description"
 								placeholder="description"
-								value={data.description || ""}
 							/>
 						</FormControl>
 					</ModalBody>
 
 					<ModalFooter>
 						<Button onClick={handleUpdate} colorScheme="blue" mr={3}>
-							Update
+							Add
 						</Button>
 						<Button onClick={onClose}>Cancel</Button>
 					</ModalFooter>

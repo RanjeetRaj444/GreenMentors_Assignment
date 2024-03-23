@@ -1,0 +1,25 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #333;
+	color: #fff;
+	padding: 10px 20px;
+	position: static;
+	top: 0px;
+}
+
+.navbar-left {
+	display: flex;
+	align-items: center;
+}
+
+.navbar-right {
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+}
+
+.navbar-title {
+	font-size: 1.2rem;
+}
