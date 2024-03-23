@@ -4,7 +4,7 @@ import { ADD_TASK, DELETE_TASK, GET_TASKS, UPDATE_TASK } from "../actionTypes";
 export const fetchTasks = (token) => {
 	return async (dispatch) => {
 		try {
-			const response = await axios.get("http://localhost:8080/api/tasks", {
+			const response = await axios.get("https://greenmentors-assignment.onrender.com/api/tasks", {
 				headers: {
 					"Content-Type": "application/json",
 					Authorization: `${token}`,
@@ -29,7 +29,7 @@ export const addTask = (formData, token) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(
-				"http://localhost:8080/api/tasks",
+				"https://greenmentors-assignment.onrender.com/api/tasks",
 				formData,
 				config,
 			);
@@ -51,7 +51,7 @@ export const updateTask = (id, data, token) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.patch(
-				`http://localhost:8080/api/tasks/${id}`,
+				`https://greenmentors-assignment.onrender.com/api/tasks/${id}`,
 				data,
 				config,
 			);
@@ -72,7 +72,7 @@ export const deleteTask = (id, token) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.delete(
-				`http://localhost:8080/api/tasks/${id}`,
+				`https://greenmentors-assignment.onrender.com/api/tasks/${id}`,
 				config,
 			);
 			dispatch(fetchTasks(token));

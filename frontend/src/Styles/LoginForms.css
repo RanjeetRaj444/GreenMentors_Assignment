@@ -23,9 +23,11 @@ body {
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 90vh;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 70vh;
+	/* display: flex;
+	gap: 2rem; */
 }
 
 .container p {
@@ -43,7 +45,7 @@ body {
 	color: #333;
 	font-size: 13px;
 	text-decoration: none;
-	margin: 15px 0 10px;
+	/* margin: 15px 0 10px; */
 }
 
 .container button {
@@ -128,21 +130,6 @@ body {
 		opacity: 1;
 		z-index: 5;
 	}
-}
-
-.social-icons {
-	margin: 20px 0;
-}
-
-.social-icons a {
-	border: 1px solid #ccc;
-	border-radius: 20%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 3px;
-	width: 40px;
-	height: 40px;
 }
 
 .toggle-container {

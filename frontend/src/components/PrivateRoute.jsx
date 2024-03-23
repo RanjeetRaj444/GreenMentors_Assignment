@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
 	} else {
 		setTimeout(() => {
 			navigate("/login");
-		}, 1700);
+		}, 700);
 
 		return (
 			<div

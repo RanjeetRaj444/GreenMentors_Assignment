@@ -5,7 +5,7 @@ export const register = (formData) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(
-				"http://localhost:8080/api/auth/register",
+				"https://greenmentors-assignment.onrender.com/api/auth/register",
 				formData,
 			);
 			dispatch({ type: REGISTRATION });
@@ -20,7 +20,7 @@ export const login = (formData) => {
 	return async (dispatch) => {
 		try {
 			const response = await axios.post(
-				"http://localhost:8080/api/auth/login",
+				"https://greenmentors-assignment.onrender.com/api/auth/login",
 				formData,
 			);
 			console.log(response.data); // Optionally handle success message

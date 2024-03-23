@@ -5,6 +5,7 @@ import { fetchTasks } from "../store/actions/taskActions";
 import { Heading } from "@chakra-ui/react";
 import "../Styles/Home.css";
 import Navbar from "../components/Navbar";
+import { Spinner } from "@chakra-ui/react";
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -21,8 +22,18 @@ const Home = () => {
 			<div className="heading">
 				<Heading>Task Management</Heading>
 			</div>
-			<div className="task_container">
-				<TaskList tasks={tasks} />
+			<div className="task_container" style={{ textAlign: "center" }}>
+				{tasks.length > 0 ? (
+					<TaskList tasks={tasks} />
+				) : (
+					<Spinner
+						thickness="4px"
+						speed="0.65s"
+						emptyColor="gray.200"
+						color="blue.500"
+						size="xl"
+					/>
+				)}
 			</div>
 		</div>
 	);

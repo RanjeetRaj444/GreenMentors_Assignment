@@ -68,21 +68,8 @@ const LoginForm = ({ onSubmit }) => {
 			<div className="form-container sign-up">
 				<form onSubmit={handleSignUp}>
 					<h1>Create Account</h1>
-					<div className="social-icons">
-						<a href="# " className="icon">
-							<i className="fa-brands fa-google-plus-g"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-facebook-f"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-github"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-linkedin-in"></i>
-						</a>
-					</div>
-					<span>or use your email for registeration</span>
+
+					<span> Use your Username for registeration</span>
 					<input
 						onChange={handleRegisterUser}
 						type="text"
@@ -101,21 +88,7 @@ const LoginForm = ({ onSubmit }) => {
 			<div className="form-container sign-in">
 				<form onSubmit={handlelogin}>
 					<h1>Sign In</h1>
-					<div className="social-icons">
-						<a href="# " className="icon">
-							<i className="fa-brands fa-google-plus-g"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-facebook-f"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-github"></i>
-						</a>
-						<a href="# " className="icon">
-							<i className="fa-brands fa-linkedin-in"></i>
-						</a>
-					</div>
-					<span>or use your email password</span>
+					<span> Use your Username and Password</span>
 					<input
 						onChange={handleLoginUser}
 						type="text"
