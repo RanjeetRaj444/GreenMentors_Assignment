@@ -7,18 +7,20 @@ import {
 	AlertDialogOverlay,
 	Button,
 	useDisclosure,
+	useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTask } from "../store/actions/taskActions";
 export default function DeleteAlertDialog(id) {
+	const toast=useToast()
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const cancelRef = React.useRef();
 	const dispatch = useDispatch();
 	const { token } = useSelector((state) => state.auth);
 
 	function handleDeleteTask() {
-		dispatch(deleteTask(id.id, token));
+		dispatch(deleteTask(id.id, token,toast));
 		onClose();
 	}
 

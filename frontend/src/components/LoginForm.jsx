@@ -17,28 +17,6 @@ const LoginForm = ({ onSubmit }) => {
 		username: "",
 		password: "",
 	});
-
-	const { registerState, loginState } = useSelector((store) => store.auth);
-	console.log(registerState, loginState);
-	if (registerState) {
-		toast({
-			title: "Account created.",
-			description: "We've created your account for you.",
-			status: "success",
-			duration: 9000,
-			isClosable: true,
-		});
-	}
-	if (loginState) {
-		toast({
-			title: "Login successfully.",
-			description: "You've logged successfully.",
-			status: "success",
-			duration: 9000,
-			isClosable: true,
-		});
-		navigate("/");
-	}
 	const dispatch = useDispatch();
 
 	const handleClick = () => {
@@ -51,11 +29,11 @@ const LoginForm = ({ onSubmit }) => {
 
 	function handlelogin(e) {
 		e.preventDefault();
-		dispatch(login(loginUser));
+		dispatch(login(loginUser, toast, navigate));
 	}
 	function handleSignUp(e) {
 		e.preventDefault();
-		dispatch(register(registersUser));
+		dispatch(register(registersUser, toast));
 	}
 	function handleRegisterUser(e) {
 		setRegisterUser({ ...registersUser, [e.target.name]: e.target.value });
@@ -75,12 +53,14 @@ const LoginForm = ({ onSubmit }) => {
 						type="text"
 						name="username"
 						placeholder="Username"
+						required
 					/>
 					<input
 						onChange={handleRegisterUser}
 						type="password"
 						name="password"
 						placeholder="Password"
+						required
 					/>
 					<button type="submit">Sign Up</button>
 				</form>
@@ -94,12 +74,14 @@ const LoginForm = ({ onSubmit }) => {
 						type="text"
 						name="username"
 						placeholder="Username"
+						required
 					/>
 					<input
 						onChange={handleLoginUser}
 						type="password"
 						name="password"
 						placeholder="Password"
+						required
 					/>
 					<a href="# ">Forget Your Password?</a>
 					<button type="submit">Sign In</button>

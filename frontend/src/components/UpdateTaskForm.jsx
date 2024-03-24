@@ -11,12 +11,14 @@ import {
 	FormControl,
 	FormLabel,
 	Input,
+	useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTask } from "../store/actions/taskActions";
 
 export default function EditDialog({ task }) {
+	const toast=useToast()
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const [data, setData] = useState({
 		title: task.title,
@@ -35,7 +37,7 @@ export default function EditDialog({ task }) {
 
 	function handleUpdate() {
 		onClose();
-		dispatch(updateTask(task._id,data, token));
+		dispatch(updateTask(task._id,data, token,toast));
 	}
 
 	return (
